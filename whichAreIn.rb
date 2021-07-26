@@ -16,4 +16,4 @@ a1 = ["arp", "live", "strong"]
 a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
 
 puts in_array(a1, a2)
-#array 2 ma zawierac array1
+#array2 ma zawierac array1
