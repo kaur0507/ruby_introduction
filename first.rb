@@ -103,15 +103,103 @@
 #   end
 # end
 
-# maping, string, array
-sentence = "The sunset sets at twelve o' clock."
+# # maping, string, array
+# sentence = "The sunset sets at twelve o' clock."
 
-def alphabet_position(text)
-  one = text.downcase.bytes.map!{|b|
-    b - 96 > 26 || b - 96 < 1 ? '0' : b - 96
-  }
-  one = (one - ['0']).to_s.delete("[],")
-  return one
-end
+# def alphabet_position(text)
+#   one = text.downcase.bytes.map!{|b|
+#     b - 96 > 26 || b - 96 < 1 ? '0' : b - 96
+#   }
+#   one = (one - ['0']).to_s.delete("[],")
+#   return one
+# end
 
-puts alphabet_position(sentence)
+# puts alphabet_position(sentence)
+
+
+# class Mind
+#   INNATE_IDEAS = [
+#     "God exists",
+#     "2 + 2 = 4",
+#     "I think therefore I am" 
+#   ]
+#   def initialize
+#     @ideas = []
+#   end
+#   def any_ideas?
+#     !@ideas.empty?
+#   end
+#   def brain_wash!
+#     @ideas.clear
+#   end
+#   def say_something
+#     @ideas[rand(@ideas.size)].to_s
+#   end
+#   def <<(idea)
+#     @ideas << idea
+#   end
+#   def think(ideas)
+#     @ideas += ideas
+#   end
+#   def Mind.new_idea
+#     Idea.new(INNATE_IDEAS[rand(3)])
+#   end
+# end
+
+# class Idea
+#   attr_reader :verbal_expression
+#   def initialize(content)
+#     @verbal_expression = content
+#   end
+#   def +(other)
+#     Idea.new(@verbal_expression + "." +  other.verbal_expression)
+#   end
+#   def to_ary
+#     @verbal_expression.split(".").collect{|ve| Idea.new(ve)}
+#   end
+#   def to_s
+#     @verbal_expression
+#   end
+# end
+# cartesian_mind = Mind.new
+# puts cartesian_mind.any_ideas?
+# #=> false 
+# cartesian_mind << Mind.new_idea
+# puts cartesian_mind.any_ideas?
+# #=> true
+# puts cartesian_mind.say_something
+# #=> "I think therefore I am" 
+# cartesian_mind.brain_wash!
+# puts cartesian_mind.any_ideas?
+# #=> false 
+# stupid_idea1 = Idea.new("Pineal gland is the seat of the soul")
+# stupid_idea2 = Idea.new("Animals are machines")
+# cartesian_mind.think(stupid_idea1 + stupid_idea2)
+# puts cartesian_mind.say_something
+# #=> "Pineal gland is the seat of the soul"
+
+# puts %{Ruby is fun.} # equivalent to "Ruby is fun."
+# puts %Q{ Ruby is fun. } # equivalent to " Ruby is fun. "
+# puts %q[Ruby is fun.] # equivalent to a single-quoted string
+# puts %x!ls! # equivalent to back tick command output `ls` - names of all the files included
+
+# # entering a value
+# puts "Enter a value :"
+# val = gets
+# puts val
+
+# aFile = File.new("input.txt", "r+")
+# if aFile
+# #    aFile.syswrite("ABCDEF")
+#    aFile.each_byte {|ch| putc ch; putc ?. }
+# else
+#    puts "Unable to open file!"
+# end
+
+arr = IO.readlines("input.txt")
+puts arr[0]
+puts arr[arr.length - 2]
+puts arr.last
+
+
+IO.foreach("input.txt"){|block| puts block}
